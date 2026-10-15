@@ -1,395 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Santiago Guepud · Contacto digital y presencia personal.">
-  <meta name="theme-color" content="#ff6a00">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santiago Guepud</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000000'/><text x='50' y='65' font-family='system-ui, sans-serif' font-weight='bold' font-size='45' fill='%23ffffff' text-anchor='middle'>SG</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Santiago Guepud">
-  <meta property="og:description" content="Contacto digital y presencia personal.">
-  <meta property="og:image" content="https://santiagoguepud.com/ogpreview.png">
-  <meta property="og:url" content="https://santiagoguepud.com">
-  <meta property="og:type" content="website">
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #F5F5DC; /* Color Marfil */
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Santiago Guepud">
-  <meta name="twitter:description" content="Contacto digital y presencia personal.">
-  <meta name="twitter:image" content="https://santiagoguepud.com/ogpreview.png">
+        .card {
+            background-color: #ffffff; /* Tarjeta blanca */
+            border: 1px solid #e5e5e5;
+            border-radius: 8px; /* Bordes menos redondeados, más clásicos */
+            padding: 40px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+            text-align: center; /* Contenido centrado */
+        }
 
-  <title>Santiago Guepud</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
 
-  <!-- Tipografía Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 300;
+            color: #444444;
+            border: 1px solid #dddddd;
+        }
 
-  <style>
-    :root {
-      --bg: #0c0d11;
-      --card-bg: rgba(22, 24, 32, 0.72);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(255, 106, 0, 0.35);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --orange: #ff6a00;
-      --orange-bright: #ff8533;
-      --orange-glow: rgba(255, 106, 0, 0.3);
-      --surface-btn: rgba(255, 255, 255, 0.04);
-      --surface-btn-hover: rgba(255, 255, 255, 0.09);
-    }
+        .info h1 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+        .info p {
+            font-size: 13px;
+            color: #777777;
+            letter-spacing: 0.5px;
+        }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow-x: hidden;
-    }
+        .vcard-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px;
+            background-color: #222222; /* Botón oscuro elegante */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            transition: background-color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    /* Fondo dinámico con orbes de gradiente ambiental */
-    .ambient-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+        .vcard-btn:hover {
+            background-color: #444444;
+        }
+        
+        .vcard-btn:active {
+            transform: scale(0.99);
+        }
 
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.45;
-      animation: float 14s ease-in-out infinite alternate;
-    }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-    .orb-1 {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
-      top: -100px;
-      right: -80px;
-    }
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Texto centrado */
+            padding: 12px 16px;
+            background-color: transparent;
+            color: #444444;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
+        }
 
-    .orb-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, #b84300 0%, transparent 70%);
-      bottom: -150px;
-      left: -120px;
-      animation-duration: 18s;
-    }
+        .link-item:hover {
+            background-color: #fafafa;
+            border-color: #cccccc;
+        }
 
-    .grid-overlay {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: 1;
-      pointer-events: none;
-    }
+        /* Ocultar iconos SVG para un look más limpio y minimalista */
+        .link-item svg {
+            display: none;
+        }
 
-    /* Tarjeta principal con soporte panorámico y móvil */
-    .wrapper {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 780px; /* Ya no es una simple tirita vertical */
-      background: var(--card-bg);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--card-border);
-      border-radius: 36px;
-      padding: 56px 44px 40px;
-      box-shadow: 
-        0 24px 60px -15px rgba(0, 0, 0, 0.6),
-        0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
-      transition: border-color 0.4s ease;
-    }
-
-    .wrapper:hover {
-      border-color: rgba(255, 106, 0, 0.2);
-    }
-
-    /* Layout interno flexible */
-    .profile-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 44px;
-    }
-
-    .monogram-badge {
-      width: 92px;
-      height: 92px;
-      border-radius: 28px;
-      background: linear-gradient(145deg, #1f222e, #14161f);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      position: relative;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-    }
-
-    .monogram-badge span {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: -0.04em;
-    }
-
-    .badge-glow {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: var(--orange);
-      border-radius: 50%;
-      bottom: -2px;
-      right: -2px;
-      box-shadow: 0 0 12px var(--orange);
-    }
-
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-      color: #ffffff;
-    }
-
-    .meta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .meta-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--orange);
-      display: inline-block;
-    }
-
-    /* Grid de botones e interacción */
-    .actions-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-
-    @media (min-width: 640px) {
-      .actions-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .btn-primary-hero {
-        grid-column: span 2;
-      }
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 18px 24px;
-      border-radius: 20px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    /* Botón Hero: Guardar contacto */
-    .btn-primary-hero {
-      background: linear-gradient(135deg, var(--orange) 0%, #d95500 100%);
-      color: #ffffff;
-      box-shadow: 0 10px 28px var(--orange-glow);
-      border: none;
-      font-size: 1.05rem;
-    }
-
-    .btn-primary-hero:hover {
-      background: linear-gradient(135deg, var(--orange-bright) 0%, var(--orange) 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(255, 106, 0, 0.45);
-    }
-
-    /* Botones de canales secundarios */
-    .btn-action {
-      background: var(--surface-btn);
-      border: 1px solid var(--card-border);
-      color: var(--text-main);
-    }
-
-    .btn-action:hover {
-      background: var(--surface-btn-hover);
-      border-color: var(--card-border-hover);
-      transform: translateY(-2px);
-    }
-
-    .btn-action svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-      opacity: 0.85;
-      transition: transform 0.2s ease;
-    }
-
-    .btn-action:hover svg {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-
-    /* Footer sutil */
-    footer {
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 24px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
-    }
-
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-30px, 40px) scale(1.08); }
-    }
-
-    @media (max-width: 640px) {
-      .wrapper {
-        padding: 40px 24px 28px;
-        border-radius: 28px;
-      }
-    }
-  </style>
+        .footer {
+            margin-top: 32px;
+            font-size: 11px;
+            color: #999999;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Elementos de fondo ambiental -->
-  <div class="ambient-bg">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-  <div class="grid-overlay"></div>
+    <div class="card">
+        <div class="header">
+            <div class="avatar">SG</div>
+            <div class="info">
+                <h1>Santiago Guepud</h1>
+                <p>Quito, Ecuador</p>
+            </div>
+        </div>
 
-  <!-- Contenedor de tarjeta -->
-  <main class="wrapper">
-    <header class="profile-header">
-      <div class="monogram-badge">
-        <span>SG</span>
-        <div class="badge-glow"></div>
-      </div>
-      
-      <h1>Santiago Guepud</h1>
-      
-      <div class="meta-tag">
-        <span class="meta-dot"></span>
-        <span id="user-age"></span> · Quito, Ecuador
-      </div>
-    </header>
+        <!-- Botón Guardar Contacto (.vcf) actualizado con tu Instagram nuevo -->
+        <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AGuepud%3BSantiago%3B%3B%3B%0AFN%3ASantiago%20Guepud%0ATEL%3BTYPE%3DCELL%2B593988880628%0AEMAIL%3BTYPE%3DHOME%3Ahey%40santiagoguepud.com%0AURL%3Ahttps%3A%2F%2Finstagram.com%2Fsantiagoguepud%0AEND%3AVCARD" download="Santiago_Guepud.vcf" class="vcard-btn">
+            Guardar contacto
+        </a>
 
-    <!-- Grid de acciones (pantalla completa o móvil) -->
-    <div class="actions-grid">
-      <!-- Guardar contacto directo -->
-      <a href="contacto.vcf" class="btn btn-primary-hero" download="Santiago-Guepud.vcf">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        Guardar contacto
-      </a>
+        <div class="links">
+            <a href="https://wa.me/593988880628" target="_blank" class="link-item">
+                WhatsApp
+            </a>
 
-      <!-- WhatsApp -->
-      <a href="https://wa.me/593987070493" target="_blank" rel="noopener noreferrer" class="btn btn-action">
-        <svg viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.301-.778.978-.954 1.179-.176.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.783-1.676-2.084-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.176.2-.301.3-.502.1-.2.05-.376-.025-.526-.075-.15-.678-1.635-.93-2.24-.244-.589-.493-.509-.678-.519-.176-.01-.377-.01-.578-.01-.2 0-.527.075-.803.376-.276.301-1.054 1.029-1.054 2.509 0 1.48 1.079 2.909 1.23 3.109.15.2 2.124 3.243 5.145 4.548.719.311 1.28.497 1.718.636.723.23 1.38.197 1.9.12.58-.087 1.78-.727 2.03-1.43.25-.703.25-1.305.175-1.43-.075-.125-.276-.2-.577-.35zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 22l4.97-1.303A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
-        </svg>
-        WhatsApp
-      </a>
+            <a href="https://instagram.com/santiagoguepud" target="_blank" class="link-item">
+                Instagram (@santiagoguepud)
+            </a>
 
-      <!-- Instagram -->
-      <a href="https://instagram.com/santiago.guepud" target="_blank" rel="noopener noreferrer" class="btn btn-action">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-        Instagram
-      </a>
+            <a href="mailto:hey@santiagoguepud.com" class="link-item">
+                hey@santiagoguepud.com
+            </a>
+        </div>
 
-      <!-- Correo electrónico -->
-      <a href="mailto:hey@santiagoguepud.com" class="btn btn-action" style="grid-column: span 1;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-        </svg>
-        hey@santiagoguepud.com
-      </a>
+        <div class="footer">
+            SANTIAGO GUEPUD
+        </div>
     </div>
-
-    <footer>
-      santiagoguepud.com
-    </footer>
-  </main>
-
-  <script>
-    // Cálculo dinámico de edad (20 de septiembre de 2004)
-    (function computeAge() {
-      const birth = new Date(2004, 8, 20); // Septiembre es mes 8 (base 0)
-      const now = new Date();
-      let age = now.getFullYear() - birth.getFullYear();
-      const diff = now.getMonth() - birth.getMonth();
-      if (diff < 0 || (diff === 0 && now.getDate() < birth.getDate())) {
-        age--;
-      }
-      document.getElementById('user-age').textContent = `${age} años`;
-    })();
-
-    // Vibración háptica en dispositivos móviles al tocar botones
-    document.querySelectorAll('.btn').forEach(button => {
-      button.addEventListener('click', () => {
-        if ('vibrate' in navigator) {
-          navigator.vibrate(25);
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
